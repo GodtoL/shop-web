@@ -1,20 +1,11 @@
 const express = require('express')
 const app = express()
-const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost:27017/gamer-shop')
-.then(() =>{
-    console.log("Conexiòn a MongoDb exitosa")
-})
-.catch((error) =>{
-    console.error("Hubo un error al intentar conectar ", error)
-})
+require('./config/db')
 
 app.get("/", async (req, res) => {
-    res.send("Hola mundo")
+    res.send("¡Bienvenidos gamers!")
 })
-
-
 
 port = 3000
 app.listen(port, () => {
