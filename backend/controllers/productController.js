@@ -6,6 +6,7 @@ const getProducts = async(req, res) => {
     res.status(200).send(products)
 } catch (error){
     console.error("Error al obtener productos", error)
+    res.status(404).send("Archivo no encontrado")
 
 }}
 
@@ -19,6 +20,13 @@ const createProduct = async(req, res) => {
     } catch (error){
         console.error("Error al obtener productos", error);
         res.status(500).send("Hubo un problema al intentar guardar");
+    }
+}
+
+const updateProduct = async(req, res) => {
+    try{
+
+    }catch(error){
 
     }
 }

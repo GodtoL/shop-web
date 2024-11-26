@@ -12,6 +12,8 @@ app.get("/api/product", getProducts)
 
 app.post("/api/product", createProduct)
 
+app.put("api/product", )
+
 port = 3000
 app.listen(port, () => {
     console.log("Servidor activo en puerto ",port)
