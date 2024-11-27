@@ -1,26 +1,20 @@
 const Admin = require('../models/Admin')
+const jwt = require('jsonwebtoken');
+const SECRET_KEY = "my_secret_key"
 
 const login = async(req, res) => {
-    console.log("Request body: ", req.body)
-    const email = req.body.email;
-    const password  = req.body.password;
-    console.log("Email recibido:", `"${email}"`); 
-    console.log("Password recibido:", `"${password}"`);
-
+    const {email , password} = req.body;
     try {
         const admin = await Admin.findOne({ email });
-        console.log("El admin es ", email)
-        console.log("La contraseña es ", password)
-        if (!admin) return res.status(404).send('Admin not found');
+        if (!admin) return res.status(404).send('No se encontro el admin');
 
-        const isMatch = await bcrypt.compare(password, admin.password);
-        if (!isMatch) return res.status(401).send('Invalid credentials');
+        if (password != admin.password) return res.status(401).send('No coinciden las contraseñas');
 
         const token = jwt.sign({ id: admin._id }, SECRET_KEY, { expiresIn: '2h' });
         res.json({ token });
     } catch (error) {
         console.error(error);
-        res.status(500).send('Server error');
+        res.status(500).send('Hubo un error al logear');
 }}
 
 module.exports = { login };
