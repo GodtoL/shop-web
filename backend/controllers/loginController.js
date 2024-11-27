@@ -1,5 +1,6 @@
 const Admin = require('../models/Admin')
 const jwt = require('jsonwebtoken');
+
 const SECRET_KEY = "my_secret_key"
 
 const login = async(req, res) => {
@@ -11,6 +12,7 @@ const login = async(req, res) => {
         if (password != admin.password) return res.status(401).send('No coinciden las contraseñas');
 
         const token = jwt.sign({ id: admin._id }, SECRET_KEY, { expiresIn: '2h' });
+        console.log("Token generado: ", token)
         res.json({ token });
     } catch (error) {
         console.error(error);
