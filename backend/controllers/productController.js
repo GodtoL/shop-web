@@ -15,7 +15,7 @@ const createProduct = async(req, res) => {
     try {
         await newProduct.save();
         res.status(201).send("Cargado exitosamente");
-    } catch (error){
+    } catch (error) {
         console.log("Error al crear ", error)
         res.status(500).json({message : "Hubo un error al intentar crear"})
     }
@@ -26,11 +26,11 @@ const updateProduct = async(req, res) => {
     const { title, price, imageUrl } = req.body;
     try {
         const updatedProduct = await Product.findByIdAndUpdate(
-            id, {$set : 
+            id, { $set : 
                 { title , 
                 price , 
                 imageUrl}}, 
-                {new : true})
+                { new : true })
         res.status(200).json({updatedProduct})
     } catch(error) {
         console.log("Error al actualizar ", error)
