@@ -28,6 +28,7 @@ func main() {
 		})
 	})
 	r.GET("/home", getProducts)
+	r.POST("/order", addOrder)
 	r.Run()
 }
 
@@ -65,3 +66,30 @@ func getProducts(c *gin.Context) {
 
 	c.JSON(http.StatusOK, products)
 }
+
+func addOrder(c *gin.Context) {
+	// Define una estructura para representar el pedido
+	type Order struct {
+		Quantity int    `json:"quantity" bson:"quantity" binding:"required"`
+		Address  string `json:"address" bson:"address" binding:"required"`
+	}
+
+	var newOrder Order
+
+	// Vincular los datos del JSON al objeto Order
+	if err := c.ShouldBindJSON(&newOrder); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"Error": "Entrada inválida", "Detalles": err.Error()})
+		return
+	}
+
+	// Insertar el nuevo pedido en la colección "orders"
+	collection := mongoClient.Database("gamer-shop").Collection("orders")
+	_, err := collection.InsertOne(context.TODO(), newOrder)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"Error": "Error creando el pedido", "Detalles": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusCreated, gin.H{"Message": "Pedido creado exitosamente", "Pedido": newOrder})
+}
+
