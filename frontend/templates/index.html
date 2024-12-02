@@ -22,12 +22,14 @@
             </section>
             <section class = "products">
                 <h2> Todas las categorìas </h2>
+                {{range .products}}
                 <div class = "product_item">
                     <div>
-                        <img src="imagen.ong" alt="juegardo">
-                        <h3> Juego purete</h3>
-                        <p class="price"> 40$ </p>
+                        <img src="{{.imageUrl}}" alt="imagen.jpg">
+                        <h3> {{.title}}</h3>
+                        <p class="price"> {{.price}}$ </p>
                     </div>
+                    {{ end }}
                 </div>
             </section>
         </main>

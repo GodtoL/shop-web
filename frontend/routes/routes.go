@@ -8,10 +8,8 @@ import (
 
 func SetupRoutes(router *gin.Engine, db *mongo.Database) {
 	router.GET("/home", func(c *gin.Context) {
-		c.HTML(200, "index.html", gin.H{
-			"title":   "Gamer Shop - Bienvenido",
-			"message": "Explora nuestros videojuegos",
-		})
+		products := controllers.GetProducts(c, db)
+		c.HTML(200, "index.html", gin.H{"products" : products})
 	})
 	router.GET("/products", func(c *gin.Context) {
 		controllers.GetProducts(c, db)
