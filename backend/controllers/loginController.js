@@ -13,18 +13,31 @@ const login = async(req, res) => {
 
         const token = jwt.sign({ id: admin._id }, SECRET_KEY, { expiresIn: '2h' });
         console.log("Token generado: ", token)
-        res.render("view_admin");
+        req.session.token = token;
+        res.redirect("http://localhost:3000/manage")
+        console.log("llego")
     } catch (error) {
         console.error(error);
         res.status(500).send('Hubo un error al logear');
 }}
- 
 
 const loginRender = async(req, res) => {
     try{
-       return  res.render("login")
-    }catch(error){
-        return res.status(500).json({message : "Hubo error"})
+        res.render("login")
+    } catch (error){
+        console.error(error);
+        res.status(500).send('Hubo un error al renderizar');          
     }
 }
-module.exports = { login, loginRender};
+
+const manage = async(req, res) => {
+    try {
+        console.log("Intento")
+        res.render("view_admin")
+    } catch( error ) {
+        console.error(error);
+        res.status(500).send('Hubo un error al renderizar el administrador');  
+    }
+}
+ 
+module.exports = { login, loginRender, manage};
