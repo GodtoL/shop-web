@@ -59,26 +59,42 @@ body{
     font-size: 3rem; 
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra para mejor legibilidad */
 }
+
 .products {
-    display: flex;
-    flex-wrap: wrap; /* Permite que los productos se ajusten al tamaño de la pantalla */
-    justify-content: space-around; /* Distribuye los productos de manera uniforme */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Productos en columnas dinámicas */
+    gap: 20px; /* Espacio entre cada producto */
+    padding: 20px;
+    margin-top: 40px; 
 }
 
 .product_item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 1rem;
-    max-width: 250px; /* Ajusta según lo que necesites */
-    height: 400px; /* Asegura una altura consistente */
-    overflow: hidden; /* Evita que el contenido se desborde */
+    background-color: #1f1f1f; /* Fondo oscuro para cada producto */
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar efecto de tarjeta */
+    overflow: hidden;
 }
-
-
+.title {
+    padding: 20px;
+}
 .product_item img {
     width: 100%;
-    max-width: 100%;  /* Esto asegura que la imagen no exceda el ancho del contenedor */
-    max-height: 200px;
-    object-fit: cover; /* Esto recorta la imagen para ajustarse al contenedor sin distorsión */
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.product_item h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.product_item .price {
+    font-size: 1rem;
+    color: orange;
+    font-weight: bold;
 }

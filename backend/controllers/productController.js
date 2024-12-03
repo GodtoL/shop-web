@@ -10,8 +10,8 @@ const getProducts = async(req, res) => {
 }}
 
 const createProduct = async(req, res) => {
-    const { title, price, imageUrl } = req.body;
-    const newProduct = new Product({ title, price, imageUrl })
+    const { title, price, imageProduct } = req.body;
+    const newProduct = new Product({ title, price, imageProduct })
     try {
         await newProduct.save();
         res.status(201).send("Cargado exitosamente");
@@ -23,13 +23,13 @@ const createProduct = async(req, res) => {
 
 const updateProduct = async(req, res) => {
     const { id } = req.params;
-    const { title, price, imageUrl } = req.body;
+    const { title, price, imageProduct } = req.body;
     try {
         const updatedProduct = await Product.findByIdAndUpdate(
             id, { $set : 
                 { title , 
                 price , 
-                imageUrl}}, 
+                imageProduct}}, 
                 { new : true })
         res.status(200).json({updatedProduct})
     } catch(error) {

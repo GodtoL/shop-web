@@ -18,5 +18,13 @@ const login = async(req, res) => {
         console.error(error);
         res.status(500).send('Hubo un error al logear');
 }}
+ 
 
-module.exports = { login };
+const loginRender = async(req, res) => {
+    try{
+       return  res.render("login")
+    }catch(error){
+        return res.status(500).json({message : "Hubo error"})
+    }
+}
+module.exports = { login, loginRender};

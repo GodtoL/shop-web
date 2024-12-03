@@ -12,26 +12,29 @@
             </div>
             <div class = "user-options">
                 <button class=" user-btn">🛒 Carrito  </button>
-                <button class=" user-btn">👤  Admin  </button>
+                <a href="http://www.localhost:3000/login" target="_blank">
+                    <button class="user-btn">👤 Admin</button>
+                </a>
+                </button>
             </div>
         </header>
         <main>
-            <section class = "featured_product">
-                <h1 class = "featured_title"> Los juegos sensación del momento </h1>
+            <section class="featured_product">
+                <h1 class="featured_title">Los juegos sensación del momento</h1>
                 <img src="static/wukong.jpg" alt="juego del mono">
             </section>
-            <section class = "products">
-                <h2> Todas las categorìas </h2>
-                {{range .products}}
-                <div class = "product_item">
-                    <div>
-                        <img src="{{.imageProduct}}" alt="imagen.jpg">
-                        <h3> {{.title}}</h3>
-                        <p class="price"> {{.price}}$ </p>
-                    </div>
-                    {{ end }}
-                </div>
+            <section class="title">
+                <h2>Todas las categorías</h2>
             </section>
-        </main>
+            <section class="products">
+                {{range .products}}
+                <div class="product_item">
+                    <img src="{{.imageProduct}}" alt="imagen del producto">
+                    <h3>{{.title}}</h3>
+                    <p class="price">{{.price}}€</p>
+                </div>
+                {{end}}
+            </section>
+        </main>        
     </body>
 </html>
