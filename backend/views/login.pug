@@ -1,0 +1,26 @@
+doctype html
+html(lang="es")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Iniciar sesión
+    link(rel="stylesheet", href="login.css")
+  
+  body
+    header
+      .logo
+        img(src="logo.png.png", alt="Logo")
+
+    main
+      .container
+        .login-section
+          form(action="/login", method="POST")
+            h2 Inicia sesión como administrador
+            div
+              input(type="text", name="email", id="email", placeholder="Email")
+            div
+              input(type="password", name="password", id="password", placeholder="Contraseña")
+            button(type="submit") Iniciar sesión
+
+        .image-section
+          img(src="https://i.pinimg.com/originals/9c/d4/57/9cd457e63559f1486af167935e884760.jpg", alt="Imagen")

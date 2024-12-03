@@ -7,7 +7,7 @@ require('./config/db')
 
 const productRoutes = require('./routes/productRoutes')
 const loginRoute = require('./routes/loginRoute')
-app.set('view engine' , 'ejs')
+app.set('view engine' , 'pug')
 app.set('views', './views')
 app.use(express.static(path.join(__dirname, 'public')));
 app.use("/api/product", productRoutes)

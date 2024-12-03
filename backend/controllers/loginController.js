@@ -13,7 +13,7 @@ const login = async(req, res) => {
 
         const token = jwt.sign({ id: admin._id }, SECRET_KEY, { expiresIn: '2h' });
         console.log("Token generado: ", token)
-        res.json({ token });
+        res.render("view_admin");
     } catch (error) {
         console.error(error);
         res.status(500).send('Hubo un error al logear');
