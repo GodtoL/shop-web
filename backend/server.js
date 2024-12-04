@@ -1,5 +1,6 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+const methodOverride = require('method-override');
 const path = require('path');
 const session = require("express-session");
 app.use(express.json())
@@ -12,7 +13,7 @@ app.use(
       saveUninitialized: true,
     })
   );
-
+app.use(methodOverride('_method')); 
 const productRoutes = require('./routes/productRoutes')
 const loginRoute = require('./routes/loginRoute')
 const manageRoute = require('./routes/manageRoute')
