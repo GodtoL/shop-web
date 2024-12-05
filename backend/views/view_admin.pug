@@ -15,11 +15,26 @@ html(lang = "es")
                     h1 Todos los juegos 
                     ul 
                         each product in products 
-                            li 
-                                | #{product.title}
-                                form(action=`/delete/${product._id}` method="POST")
-                                input(type="hidden" name="_method" value="DELETE")
-                                button(type="submit") Borrar
+                            li
+                                | #{product.title} 
+                                details(class="update-form")
+                                    summary(class="update-summary")  Actualizar
+                                    form(action=`/api/product/${product._id}?_method=PUT` method="POST")
+                                        input(type="text" name="title" placeholder="Nuevo título" required)
+                                        button(type="submit") Guardar cambios
+                                                                
+                                form(action=`/api/product/${product._id}?_method=DELETE` method="POST")
+                                    button(type="submit") Borrar
+            div.add-product-form
+                h3 Agregar nuevo producto
+                form(action="/api/product" method="POST")
+                    input(type="text" name="title" placeholder="Título" required)
+                    input(type="number" name="price" placeholder="Precio" required)
+                    input(type="text" name="imageProduct" placeholder="URL de la imagen")
+                    button(type="submit") Agregar producto
+
+
+
 
 
                                 

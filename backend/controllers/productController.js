@@ -39,8 +39,10 @@ const updateProduct = async(req, res) => {
 }
 
 const deleteProduct = async(req, res) => {
+    console.log("Funcion de borrar ")
     const { id } = req.params;
     try {
+        console.log("Intentando borrar...")
         const product = await Product.findById(id);
         if (!product) {
             res.status.json({message : "Producto no encontrado"})

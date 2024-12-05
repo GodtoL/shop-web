@@ -24,3 +24,65 @@ header {
 .product-section {
     margin-left: 20px;
 }
+/* Estilos generales para <details> */
+.update-form {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #1f1f1f;
+    width: 300px;
+  }
+  /* Botón de Borrar */
+form button[type="submit"] {
+    padding: 5px 10px;
+    background-color: #dc3545; /* Rojo para indicar acción peligrosa */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  form button[type="submit"]:hover {
+    background-color: #c82333; /* Rojo más oscuro al pasar el cursor */
+  }
+  
+  /* Estilos para <summary> */
+  .update-summary {
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px;
+    color: orange;
+  }
+  
+  .update-summary:hover {
+    color: orange;
+    text-decoration: underline;
+  }
+  
+  /* Estilos para el formulario */
+  .update-form form {
+    margin-top: 10px;
+  }
+  
+  .update-form input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  .update-form button[type="submit"] {
+    padding: 5px 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .update-form button[type="submit"]:hover {
+    background-color: #218838;
+  }
+  

@@ -4,9 +4,10 @@ const { createProduct, getProducts, updateProduct, deleteProduct } = require('..
 const authenticate = require('../middlewares/Authenticate')
 
 router.get("/", authenticate, getProducts)
-router.post("/", authenticate, createProduct)
+router.post("/", createProduct)
 router.route("/:id")
-    .put(updateProduct)
-    .delete(deleteProduct)
+    .put( updateProduct)
+    .delete( deleteProduct)
+    
 
 module.exports = router;
