@@ -5,7 +5,6 @@ const path = require('path');
 app.use(express.json())
 
 require('./config/db')
-const MongoStore = require('connect-mongo');
 const session = require('express-session');
 app.use(express.urlencoded({ extended: true }));
 app.use(session({

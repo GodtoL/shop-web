@@ -32,6 +32,15 @@ html(lang = "es")
                     input(type="number" name="price" placeholder="Precio" required)
                     input(type="text" name="imageProduct" placeholder="URL de la imagen")
                     button(type="submit") Agregar producto
+            div.orders 
+                    h1 Todos los pedidos
+                    ul 
+                        each order in orders 
+                            li
+                                | #{order.quantity}
+                                | #{order.address}
+
+                                              
 
 
 
