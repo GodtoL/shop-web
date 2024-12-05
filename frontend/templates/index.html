@@ -32,7 +32,7 @@
                   <img src="{{.imageProduct}}" alt="imagen del producto">
                   <h3>{{.title}}</h3>
                   <p class="price">{{.price}}€</p>
-                  <form action="/submit-order" method="POST">
+                  <form action="/order" method="POST">
                     <!-- Campos ocultos para enviar id y nombre -->
                     <input type="hidden" name="id" value="{{.id}}">
                     <input type="hidden" name="name" value="{{.title}}">
@@ -47,7 +47,7 @@
                   </form>
                 </div>
                 {{end}}
-              </section>+
+            </section>                         
         </main>        
     </body>
 </html>

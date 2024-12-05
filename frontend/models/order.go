@@ -1,6 +1,8 @@
 package models
 
 type Order struct {
-	Quantity int    `json:"quantity" bson:"quantity" binding:"required"`
-	Address  string `json:"address" bson:"address" binding:"required"`
+	ID       string `json:"id" form:"id"`
+	Name     string `json:"name" form:"name"`
+	Address  string `json:"address" form:"address"`
+	Quantity int    `json:"quantity" form:"quantity"`
 }

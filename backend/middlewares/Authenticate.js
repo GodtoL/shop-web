@@ -4,7 +4,9 @@ const SECRET_KEY = 'my_secret_key'; // Debe coincidir con el usado al generar el
 const authenticate = (req, res, next) => {
     console.log("Sesion actual:", req.session); // Verifica si se recibe
 
-    const receivedToken = req.session.token;
+    const receivedToken = req.query.token || req.headers['authorization'] || req.headers['authorization'].cookie;
+    console.log("El req.query.token ", req.query.token)
+    console.log("El req.headers ", req.headers)
     console.log("Token recibido en authenticate:", receivedToken); // Verifica si se recibe
 
     if (!receivedToken) {

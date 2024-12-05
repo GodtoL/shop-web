@@ -7,7 +7,7 @@ router.get("/", authenticate, getProducts)
 router.post("/", createProduct)
 router.route("/:id")
     .put( updateProduct)
-    .delete(authenticate, deleteProduct)
+    .delete( deleteProduct)
     
 
 module.exports = router;
