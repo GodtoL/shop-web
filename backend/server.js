@@ -5,17 +5,9 @@ const path = require('path');
 app.use(express.json())
 
 require('./config/db')
-const session = require('express-session');
+
 app.use(express.urlencoded({ extended: true }));
-app.use(session({
-    secret: 'my_secret_key',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false,
-        sameSite: 'lax',
-        httpOnly: true
-     }  
-}));
+
 
 app.use((req, res, next) => {
     console.log(req.path, req.method);
