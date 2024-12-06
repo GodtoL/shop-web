@@ -42,6 +42,9 @@ html(lang = "es")
                                 | #{order.name}
                                 | #{order.quantity}
                                 | #{order.address}
+                            form(action=`/manage/delete/${order._id}` method="POST")
+
+                                button(type="submit") Entregado
 
                                               
 
