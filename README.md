@@ -1,5 +1,5 @@
 # Proyecto de Tienda en Línea
-![Inicio](frontend/static/home.jpg)
+![Inicio](frontend/static/home.png)
 
 Este proyecto consta de dos servidores: 
 1. **Backend**: Panel de administrador desarrollado en Node.js con Express y Pug.
