@@ -22,7 +22,7 @@ Asegúrate de tener instalados los siguientes programas en tu sistema:
    cd backend
 3. Instalar dependencias
    ```bash
-   npm install express, pug, method-override, mongoose, jsonwebtoken
+   npm install express pug method-override mongoose jsonwebtoken
 4. Configurar la conexión a MongoDB:
 Asegúrate de que MongoDB esté ejecutándose localmente o proporciona una URI válida en backend/config/db.js.
 5. Iniciar el servidor del backend:
