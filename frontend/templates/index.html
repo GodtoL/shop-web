@@ -32,18 +32,8 @@
                   <img src="{{.imageProduct}}" alt="imagen del producto">
                   <h3>{{.title}}</h3>
                   <p class="price">{{.price}}€</p>
-                  <form action="/order" method="POST">
-                    <!-- Campos ocultos para enviar id y nombre -->
-                    <input type="hidden" name="id" value="{{.id}}">
-                    <input type="hidden" name="name" value="{{.title}}">
               
-                    <label for="address_{{.id}}">Dirección:</label>
-                    <input type="text" id="address_{{.id}}" name="address" required>
-              
-                    <label for="quantity_{{.id}}">Cantidad:</label>
-                    <input type="number" id="quantity_{{.id}}" name="quantity" min="1" required>
-              
-                    <button type="submit">Hacer pedido</button>
+                <button class="user-btn">Hacer pedido</button>
                   </form>
                 </div>
                 {{end}}
